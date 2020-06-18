@@ -1,7 +1,6 @@
 SIMPLIFYING COMMAND-BASED DEPLOYMENT WITH NODE.JS
 
-C:\Program Files\geth>geth --testnet --rpc 
---rpcapi="db,eth,net,web3,personal,web3"
+C:\Program Files\geth>geth --testnet --rpc --rpcapi="db,eth,net,web3,personal,web3"
 
 C:\Ethereum\SimpleCoinWithNode>node
 >
@@ -27,17 +26,13 @@ C:\Ethereum\SimpleCoinWithNode>node
 //3 Web3 package
 >const Web3 = require('web3');      
 
->const web3 = new Web3(
-    new Web3.providers.HttpProvider(
-    "http://localhost:8545"));
+>const web3 = new Web3(new Web3.providers.HttpProvider("http://10.10.152.10:8000"));
 
 >const initialSupply = 10000;
 >const account2 = web3.eth.accounts[1];
 >const sender = account2;
 >const senderPassword = 'account2';
->const source = fs.readFileSync(
-'c:/Ethereum/SimpleCoinWithNode/SimpleCoin.sol', 
-'utf8');
+>const source = fs.readFileSync('C:/Users/Kyaw Myo Hlaing/project/compilemethod/contracts/SimpleCoin.sol','utf8');
 >const compiledContract = solc.compile(source, 1);
 >const abi = compiledContract.contracts[':SimpleCoin'].interface;
 >const bytecode = '0x' + 
@@ -118,3 +113,5 @@ transactionReceipt.blockNumber);
 >console.log('Account 2 balance: ' + account2Balance);;
 >console.log('Account 3 balance: ' + account3Balance);
 
+
+//C:\Users\Kyaw Myo Hlaing\project\match> solcjs --bin --base-path . ./SimpleCoin.sol
